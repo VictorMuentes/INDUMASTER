@@ -118,4 +118,25 @@ public class GestionCliente implements IGestiones {
     }
     }
     
+    public void Consultar2() throws SQLException {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     try{
+    Conexion.GetInstancia().Conectar();
+        ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select idCliente,nombres,apellidos FROM cliente WHERE Cedula = "+client.getCedula());
+   while(consulta.next())
+   {
+    
+    this.client.setNombres(consulta.getString("nombres"));
+    this.client.setApellidos(consulta.getString("apellidos"));
+    
+  
+   }
+        Conexion.GetInstancia().Desconectar();
+    }
+    catch(SQLException e)
+    {
+    throw e;
+    }
+    }
+    
 }

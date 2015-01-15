@@ -280,7 +280,7 @@ public void enviarValores(){
          try
         {
             GB.Consultar();
-           txtFecha.setText(GB.getBodeg().getFechaIngreso());
+            txtFecha.setText(GB.getBodeg().getFechaIngreso());
 
         }
         catch(SQLException ex){

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class Producto {
 
-    public Producto(String descripcion, String nombre, int id, double costo, double iva, String numSerie, double precio, double precioEspecial) {
+    public Producto(String descripcion, String nombre, int id, double costo, double iva, String numSerie, double precio, double precioEspecial, int cantidad) {
         this.descripcion = descripcion;
         this.nombre = nombre;
         this.id = id;
@@ -23,9 +23,10 @@ public class Producto {
         this.numSerie = numSerie;
         this.precio = precio;
         this.precioEspecial = precioEspecial;
+        this.cantidad=cantidad;
     }
 
-   
+    private int cantidad;
 
         private String descripcion;
 
@@ -230,6 +231,20 @@ public class Producto {
      */
     public void setIdProducto(List<Producto> idProducto) {
         this.idProducto = idProducto;
+    }
+
+    /**
+     * @return the cantidad
+     */
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    /**
+     * @param cantidad the cantidad to set
+     */
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
 }

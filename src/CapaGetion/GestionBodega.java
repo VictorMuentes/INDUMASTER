@@ -53,15 +53,15 @@ public class GestionBodega implements IGestiones{
     @Override
     public void Grabar() throws SQLException {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    try{
-    Conexion.GetInstancia().Conectar();
-    Conexion.GetInstancia().Ejecutar("insert into bodega(area,descripcion,fechaIngreso,fechaSalida) values ('"+this.bodeg.getArea()+"','"+this.bodeg.getDescripcion()+"','"+this.bodeg.getFechaIngreso()+"','"+this.bodeg.getFechaSalida()+"')");
-    Conexion.GetInstancia().Desconectar();
-    }
-    catch(SQLException e)
-    {
-    throw e;
-    }
+//    try{
+//    Conexion.GetInstancia().Conectar();
+//    Conexion.GetInstancia().Ejecutar("insert into bodega(area,descripcion,fechaIngreso,fechaSalida) values ('"+this.bodeg.getArea()+"','"+this.bodeg.getDescripcion()+"','"+this.bodeg.getFechaIngreso()+"','"+this.bodeg.getFechaSalida()+"')");
+//    Conexion.GetInstancia().Desconectar();
+//    }
+//    catch(SQLException e)
+//    {
+//    throw e;
+//    }
     }
 
     @Override
@@ -113,9 +113,10 @@ public class GestionBodega implements IGestiones{
         ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select fechaIngreso FROM bodega WHERE area = "+bodeg.getArea());
    while(consulta.next())
    {
-    //this.bodeg.setArea(consulta.getString(5));
+      //this.bodeg.setArea(consulta.getString(5));
     this.bodeg.setFechaIngreso(consulta.getString(2));
     //this.bodeg.setFechaSalida(consulta.getString(3));
+    this.bodeg.setDescripcion(consulta.getString(6));
     
    }
         Conexion.GetInstancia().Desconectar();

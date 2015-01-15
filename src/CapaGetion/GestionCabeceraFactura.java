@@ -99,8 +99,8 @@ public class GestionCabeceraFactura implements IGestiones{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     try{
     Conexion.GetInstancia().Conectar();
-    Conexion.GetInstancia().Ejecutar("insert into cliente(cedula,nombres,direccion) values ('"+this.client.getCedula()+"','"+this.client.getNombres()+"','"+this.client.getDireccion()+"')");
-     Conexion.GetInstancia().Ejecutar("insert into factura(codigo,fechaFactura) values ('"+this.fact.getCodigo()+"','"+this.fact.getFechaFactura()+"')");
+   // Conexion.GetInstancia().Ejecutar("insert into factura(cedula,nombres,direccion) values ('"+this.client.getCedula()+"','"+this.client.getNombres()+"','"+this.client.getDireccion()+"')");
+    Conexion.GetInstancia().Ejecutar("insert into factura(codigo,fechaFactura) values ('"+this.fact.getCodigo()+"','"+this.fact.getFechaFactura()+"')");
     
     Conexion.GetInstancia().Desconectar();
     }
@@ -131,13 +131,12 @@ public class GestionCabeceraFactura implements IGestiones{
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     try{
     Conexion.GetInstancia().Conectar();
-        ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select cedula,nombres,direccion FROM cliente WHERE Cedula = "+client.getCedula());
+        ResultSet consulta=Conexion.GetInstancia().EjectConsulta("select nombres FROM cliente WHERE Cedula = "+client.getCedula());
    while(consulta.next())
    {
-    this.client.setCedula(consulta.getString(2));
-    this.client.setNombres(consulta.getString(3));
-    this.client.setDireccion(consulta.getString(5));
-    
+   
+   // this.client.setNombres(consulta.getString(3));
+       
    }
         Conexion.GetInstancia().Desconectar();
     }
@@ -145,6 +144,8 @@ public class GestionCabeceraFactura implements IGestiones{
     {
     throw e;
     }
-    }    
+    }   
+    
+    
         
 }
